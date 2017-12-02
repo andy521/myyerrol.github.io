@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[Breeze微型四轴系列（三）：STM32嵌入式开发-Makefile详解]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/11/18/breeze_quadcopter_3_stm32_makefile/</url>
+      <url>http://myyerrol.io/zh-cn/2017/11/18/breeze_quadcopter_3_stm32_makefile/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><a id="more"></a>
 <h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p><img src="../../../../../images/breeze/embedded/breeze_dir_make.png" alt="breeze_dir_make"></p>
 <h3 id="Makefile详解"><a href="#Makefile详解" class="headerlink" title="Makefile详解"></a>Makefile详解</h3><figure class="highlight mk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div></pre></td><td class="code"><pre><div class="line">PROJECT := breeze_firmware_none</div><div class="line"></div><div class="line">MCU     := cortex-m3</div><div class="line"></div><div class="line">DDEFS   += -DSTM32F10X_MD</div><div class="line">DDEFS   += -DHSE_VALUE=8000000 -DUSE_STDPERIPH_DRIVER</div><div class="line"></div><div class="line">SRC_ASM := ../Libraries/CMSIS/startup/gcc/startup_stm32f10x_md.s</div><div class="line"></div><div class="line">DIR_DRIVERS += ../Drivers/Driver_Clock/</div><div class="line">DIR_DRIVERS += ../Drivers/Driver_Delay/</div><div class="line">DIR_DRIVERS += ../Drivers/Driver_EEPROM/</div><div class="line">DIR_DRIVERS += ../Drivers/Driver_Flash/</div><div class="line">DIR_DRIVERS += ../Drivers/Driver_IIC/</div><div class="line">DIR_DRIVERS += ../Drivers/Driver_IO/</div><div class="line">DIR_DRIVERS += ../Drivers/Driver_NVIC/</div><div class="line">DIR_DRIVERS += ../Drivers/Driver_SPI/</div><div class="line">DIR_DRIVERS += ../Drivers/Driver_Timer/</div><div class="line">DIR_DRIVERS += ../Drivers/Driver_USART/</div><div class="line"></div><div class="line">DIR_MODULES += ../Modules/Module_Battery/</div><div class="line">DIR_MODULES += ../Modules/Module_CommLink/</div><div class="line">DIR_MODULES += ../Modules/Module_LED/</div><div class="line">DIR_MODULES += ../Modules/Module_Motor/</div><div class="line">DIR_MODULES += ../Modules/Module_MPU6050/</div><div class="line">DIR_MODULES += ../Modules/Module_MS5611/</div><div class="line">DIR_MODULES += ../Modules/Module_NRF24L01/</div><div class="line"></div><div class="line">DIR_ALGORITHM += ../Algorithm/Algorithm_Altitude/</div><div class="line">DIR_ALGORITHM += ../Algorithm/Algorithm_Control/</div><div class="line">DIR_ALGORITHM += ../Algorithm/Algorithm_Filter/</div><div class="line">DIR_ALGORITHM += ../Algorithm/Algorithm_Flight/</div><div class="line">DIR_ALGORITHM += ../Algorithm/Algorithm_IMU/</div><div class="line"></div><div class="line">SRC_C   += <span class="variable">$(<span class="built_in">wildcard</span> ../Libraries/CMSIS/*.c)</span></div><div class="line">SRC_C   += <span class="variable">$(<span class="built_in">wildcard</span> ../Libraries/FWLib/src/*.c)</span></div><div class="line">SRC_C   += <span class="variable">$(<span class="built_in">wildcard</span> $(<span class="built_in">addsuffix</span> *.c, <span class="variable">$(DIR_DRIVERS)</span>)</span>)</div><div class="line">SRC_C   += <span class="variable">$(<span class="built_in">wildcard</span> $(<span class="built_in">addsuffix</span> *.c, <span class="variable">$(DIR_MODULES)</span>)</span>)</div><div class="line">SRC_C   += <span class="variable">$(<span class="built_in">wildcard</span> $(<span class="built_in">addsuffix</span> *.c, <span class="variable">$(DIR_ALGORITHM)</span>)</span>)</div><div class="line">SRC_C   += <span class="variable">$(<span class="built_in">wildcard</span> ../User/*.c)</span></div><div class="line"></div><div class="line">DIR_INCLUDE  += -I../Libraries/CMSIS/ \</div><div class="line">                -I../Libraries/FWLib/inc/ \</div><div class="line">                <span class="variable">$(<span class="built_in">addprefix</span> -I, <span class="variable">$(DIR_DRIVERS)</span>)</span> \</div><div class="line">                <span class="variable">$(<span class="built_in">addprefix</span> -I, <span class="variable">$(DIR_MODULES)</span>)</span> \</div><div class="line">                <span class="variable">$(<span class="built_in">addprefix</span> -I, <span class="variable">$(DIR_ALGORITHM)</span>)</span> \</div><div class="line">                -I../User/ \</div><div class="line"></div><div class="line">LINK_SCRIPT := ../Libraries/LinkScript/stm32f10x_flash.lds</div><div class="line"></div><div class="line">CC_PREFIX := arm-none-eabi-</div><div class="line"></div><div class="line">CC   := <span class="variable">$(CC_PREFIX)</span>gcc</div><div class="line">CXX  := <span class="variable">$(CC_PREFIX)</span>g++</div><div class="line">CP   := <span class="variable">$(CC_PREFIX)</span>objcopy</div><div class="line">GDB  := <span class="variable">$(CC_PREFIX)</span>gdb</div><div class="line">SIZE := <span class="variable">$(CC_PREFIX)</span>size</div><div class="line">AS   := <span class="variable">$(CC)</span> -x assembler-with-cpp</div><div class="line">HEX  := <span class="variable">$(CP)</span> -O ihex</div><div class="line">BIN  := <span class="variable">$(CP)</span> -O binary -S</div><div class="line"></div><div class="line">OPT  += -Os</div><div class="line">OPT  += -fsingle-precision-constant</div><div class="line">OPT  += -fno-common</div><div class="line">OPT  += -ffunction-sections</div><div class="line">OPT  += -fdata-sections</div><div class="line"></div><div class="line">DEFS := <span class="variable">$(DDEFS)</span> -DRUN_FROM_FLASH=1</div><div class="line"></div><div class="line">SPECS := --specs=rdimon.specs -u _printf_float</div><div class="line"></div><div class="line">FLAGS_MCU := -mcpu=<span class="variable">$(MCU)</span></div><div class="line">FLAGS_AS  := <span class="variable">$(SPECS)</span> <span class="variable">$(FLAGS_MCU)</span> <span class="variable">$(OPT)</span> -c -g -gdwarf-2 -mthumb</div><div class="line">FLAGS_C   := <span class="variable">$(SPECS)</span> <span class="variable">$(FLAGS_MCU)</span> <span class="variable">$(OPT)</span> -c -g -gdwarf-2 -mthumb \</div><div class="line">             -fomit-frame-pointer -Wall -fverbose-asm <span class="variable">$(DEFS)</span></div><div class="line">FLAGS_CXX := <span class="variable">$(SPECS)</span> <span class="variable">$(FLAGS_MCU)</span> <span class="variable">$(OPT)</span> -c -g -gdwarf-2 -mthumb \</div><div class="line">             -fomit-frame-pointer -Wall -fverbose-asm -fno-exceptions \</div><div class="line">             -fno-rtti -fno-threadsafe-statics -fvisibility=hidden -std=c++11 \</div><div class="line">             <span class="variable">$(DEFS)</span></div><div class="line">FLAGS_LD  := <span class="variable">$(SPECS)</span> <span class="variable">$(FLAGS_MCU)</span> <span class="variable">$(OPT)</span> -lm -g -gdwarf-2 -mthumb \</div><div class="line">             -nostartfiles -Xlinker --gc-sections -T<span class="variable">$(LINK_SCRIPT)</span> \</div><div class="line">             -Wl,-Map=<span class="variable">$(PROJECT)</span>.map,--cref,--no-warn-mismatch</div><div class="line"></div><div class="line">OBJS      := <span class="variable">$(<span class="built_in">filter</span> %.o, $(SRC_ASM:.s=.o)</span>) <span class="variable">$(<span class="built_in">filter</span> %.o, $(SRC_C:.c=.o)</span>)</div><div class="line"></div><div class="line">TYPE_BURN  := openocd_swd_flash</div><div class="line">TYPE_DEBUG := openocd_swd_debug</div><div class="line">TYPE_ERASE := openocd_swd_erase</div><div class="line"></div><div class="line"><span class="comment">###############################################################################</span></div><div class="line"></div><div class="line"><span class="meta"><span class="meta-keyword">.PHONY</span>: all burn debug erase clean</span></div><div class="line"></div><div class="line"><span class="section">all: <span class="variable">$(OBJS)</span> <span class="variable">$(PROJECT)</span>.elf <span class="variable">$(PROJECT)</span>.hex <span class="variable">$(PROJECT)</span>.bin</span></div><div class="line">    <span class="variable">$(SIZE)</span> <span class="variable">$(PROJECT)</span>.elf</div><div class="line"></div><div class="line"><span class="section">%.o: %.c</span></div><div class="line">    <span class="variable">$(CC)</span> <span class="variable">$(FLAGS_C)</span> <span class="variable">$(DIR_INCLUDE)</span> <span class="variable">$&lt;</span> -o <span class="variable">$@</span></div><div class="line"></div><div class="line"><span class="section">%.o: %.s</span></div><div class="line">    <span class="variable">$(AS)</span> <span class="variable">$(FLAGS_AS)</span> <span class="variable">$&lt;</span> -o <span class="variable">$@</span></div><div class="line"></div><div class="line"><span class="section">%.elf: <span class="variable">$(OBJS)</span></span></div><div class="line">    <span class="variable">$(CC)</span> <span class="variable">$(OBJS)</span> <span class="variable">$(FLAGS_LD)</span> -o <span class="variable">$@</span></div><div class="line"></div><div class="line"><span class="section">%.hex: %.elf</span></div><div class="line">    <span class="variable">$(HEX)</span> <span class="variable">$&lt;</span> <span class="variable">$@</span></div><div class="line"></div><div class="line"><span class="section">%.bin: %.elf</span></div><div class="line">    <span class="variable">$(BIN)</span> <span class="variable">$&lt;</span> <span class="variable">$@</span></div><div class="line"></div><div class="line"><span class="comment">###############################################################################</span></div><div class="line"></div><div class="line"><span class="section">burn:  <span class="variable">$(TYPE_BURN)</span></span></div><div class="line"><span class="section">debug: <span class="variable">$(TYPE_DEBUG)</span></span></div><div class="line"><span class="section">erase: <span class="variable">$(TYPE_ERASE)</span></span></div><div class="line"></div><div class="line"><span class="section">openocd_swd_flash: <span class="variable">$(PROJECT)</span>.bin</span></div><div class="line">    openocd -f interface/jlink.cfg -c <span class="string">"transport select swd"</span> -f</div><div class="line">    target/stm32f1x.cfg -c <span class="string">"init"</span> -c <span class="string">"reset halt"</span> -c <span class="string">"sleep 100"</span> -c <span class="string">"wait_halt</span></div><div class="line">    2" -c <span class="string">"flash write_image erase <span class="variable">$(PROJECT)</span>.bin 0x08000000"</span> -c <span class="string">"sleep 100"</span> -c</div><div class="line">    <span class="string">"verify_image <span class="variable">$(PROJECT)</span>.bin 0x08000000"</span> -c <span class="string">"sleep 100"</span> -c <span class="string">"reset run"</span> -c</div><div class="line">    shutdown</div><div class="line"></div><div class="line"><span class="section">openocd_swd_debug: <span class="variable">$(PROJECT)</span>.bin</span></div><div class="line">    xterm -e openocd -f interface/jlink.cfg -c <span class="string">"transport select swd"</span> -f</div><div class="line">    target/stm32f1x.cfg -c <span class="string">"init"</span> -c <span class="string">"halt"</span> -c <span class="string">"reset halt"</span> &amp;</div><div class="line">    <span class="variable">$(GDB)</span> --eval-command=<span class="string">"target extended-remote localhost:3333"</span> <span class="variable">$(PROJECT)</span>.elf</div><div class="line"></div><div class="line"><span class="section">openocd_swd_erase:</span></div><div class="line">    openocd -f interface/jlink.cfg -c <span class="string">"transport select swd"</span> -f</div><div class="line">    target/stm32f1x.cfg  -c <span class="string">"init"</span> -c <span class="string">"reset halt"</span> -c <span class="string">"sleep 100"</span> -c <span class="string">"stm32f1x</span></div><div class="line">    mass_erase 0" -c <span class="string">"sleep 100"</span> -c shutdown</div><div class="line"></div><div class="line"><span class="comment">###############################################################################</span></div><div class="line"></div><div class="line"><span class="section">clean:</span></div><div class="line">    -rm -rf <span class="variable">$(OBJS)</span></div><div class="line">    -rm -rf <span class="variable">$(PROJECT)</span>.elf</div><div class="line">    -rm -rf <span class="variable">$(PROJECT)</span>.map</div><div class="line">    -rm -rf <span class="variable">$(PROJECT)</span>.hex</div><div class="line">    -rm -rf <span class="variable">$(PROJECT)</span>.bin</div></pre></td></tr></table></figure>
@@ -41,7 +41,7 @@
     
     <entry>
       <title><![CDATA[Breeze微型四轴系列（二）：STM32嵌入式开发-开发环境搭建]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/11/07/breeze_quadcopter_2_stm32_development/</url>
+      <url>http://myyerrol.io/zh-cn/2017/11/07/breeze_quadcopter_2_stm32_development/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我跟很多刚开始接触STM32的同学一样，都是先通过各种渠道获得战舰的开发板（我是从机器人基地电子组那里借了一个STM32最小系统板），然后边看着《原子教你玩转STM32》，边用Keil MDK编写代码来入门STM32嵌入式开发的。在学习的过程中，我发现虽然Keil MDK集代码编辑、编译、下载、调试为一体，并且提供了非常友好的图形操作界面，但是它的代码编辑功能实在是做得很一般，而且最关键的是它不能在GNU/Linux和Mac OS上跨平台运行。因此，为了提高项目的开发效率并且践行开源的宗旨，我决定遵循<a href="https://hands-free.github.io" target="_blank" rel="external">HandsFree</a>的<a href="https://github.com/HANDS-FREE/OpenRE" target="_blank" rel="external">OpenRE</a>库（由我们西工大舞蹈机器人基地学长们联合创立的开源机器人软硬件项目）以及很多国外开源飞控项目所做的那样，使用GNU/Linux下的开源工具链来搭建Breeze微型四轴飞行器的嵌入式开发环境。</p>
 <a id="more"></a>
 <h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><h3 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h3><ul>
@@ -156,7 +156,7 @@
     
     <entry>
       <title><![CDATA[Breeze微型四轴系列（一）：硬件电路板设计]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/10/21/breeze_quadcopter_1_hardware_design/</url>
+      <url>http://myyerrol.io/zh-cn/2017/10/21/breeze_quadcopter_1_hardware_design/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我曾经在大二的时候为完成数字电路实验而简单地学过一些硬件电路板设计，当时我看的是郭天祥老师的教程视频，里面有关Altium Designer 6.9软件的操作可以说是讲得非常细致，但是由于后来临近期末考试，时间较为紧迫，而且实验电路本身并不复杂，所以我只学了其中的PCB部分之后就没再深入地学习下去了。</p>
 <p>可能是之前我还有一些PCB设计的基础，所以这次在设计Breeze微型四轴飞行器PCB的时候感觉还是比较容易上手的。我最早是在Ubuntu 14.04上用<a href="http://kicad-pcb.org" target="_blank" rel="external">KiCad</a>来设计硬件（因为Crazyflie 1.0四轴飞行器的PCB就是用KiCAD画的），但是后来综合考虑到KiCAD在处理复杂元器件布线以及规则约束方面的短板，所以我们最终还是决定使用功能更加强大的Altium Designer 16来重新完成对PCB的绘制工作。</p>
 <a id="more"></a>
@@ -315,7 +315,7 @@
     
     <entry>
       <title><![CDATA[Breeze微型四轴系列（零）：总纲]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/10/06/breeze_quadcopter_0_superclass/</url>
+      <url>http://myyerrol.io/zh-cn/2017/10/06/breeze_quadcopter_0_superclass/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我记得自己第一次接触四轴飞行器是在大一，有一次我在<a href="https://www.ted.com" target="_blank" rel="external">TED</a>上看了由瑞士苏黎世联邦理工大学的Raffaello D’Andrea教授所做的关于四轴飞行器的演讲，题目是<strong>“The astounding athletic power of quadcopters”</strong>，教授边用四轴飞行器进行演示并对其中所用到的数学理论进行讲解，对于当时什么理论都不懂的我来说，最令我惊讶的是在演示环节，那些四轴飞行器能够在高速移动的时候保证放在其顶部的细棍和酒杯不失去平衡，可以在桨叶受损的情况下依然可控，可以通过协作接住由人所抛出的小球并将其击回，可以判断人的手势来做不同的动作等。当时看完这段视频之后我的内心难以平静，脑海里萌生了自制四轴飞行器的想法，但由于后来我加入了舞蹈机器人基地并忙于组内的开发任务，所以这个想法就暂时被搁置了。</p>
 <a id="more"></a>
 <p><img src="../../../../../images/ted/ted_quadcopter_1.jpg" alt="ted_quadcopter_1"></p>
@@ -394,7 +394,7 @@
     
     <entry>
       <title><![CDATA[RoboCup比赛系列（九）：RoboCup贵阳公开赛]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/10/01/robocup_competition_9_guiyang/</url>
+      <url>http://myyerrol.io/zh-cn/2017/10/01/robocup_competition_9_guiyang/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着RoboCup合肥国际赛的结束，我们晓萌队又开始紧锣密鼓地着手准备10月份的RoboCup中国赛。由于之前5月份我们在中国服务机器人大赛上发挥得不理想，再加上即将到来RoboCup中国赛是我们这一届晓萌队成员的最后一战，所以这一次我们根据比赛规则提前制定好了开发计划，每个队员也都尽全力来完成各自的任务，当然我们目标很明确：<strong>把握机会，不留遗憾</strong>。</p>
 <p>2015年10月份的RobCup中国赛将会在贵阳举办，由于是一年一度的全国赛，所以国内研究服务机器人的高校队伍基本上都会参加，而最令我们感到意外的是刚刚参加完RoboCup合肥国际赛的中科大蓝鹰队也会携可佳机器人参赛，届时我们的晓萌可以和中科大的可佳同台较量，这绝对是我们向强队学习的绝佳机会。</p>
 <a id="more"></a>
@@ -473,7 +473,7 @@
     
     <entry>
       <title><![CDATA[RoboCup比赛系列（八）：RoboCup合肥国际赛第六天]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/09/21/robocup_competition_8_hefei/</url>
+      <url>http://myyerrol.io/zh-cn/2017/09/21/robocup_competition_8_hefei/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>RoboCup即机器人世界杯，是目前世界上级别规格最高、影响力最广的机器人赛事（当然，DARPA机器人挑战赛除外）。中国曾经在2008年的时候举办过一次RoboCup国际赛，地点是在苏州，而七年之后，RoboCup国际赛又一次降临中国，这次则是在拥有多年举办机器人赛事经验的合肥。非常幸运的是我们晓萌机器人团队能够被邀请参与本次比赛新增的BSR项目，并获得免费近距离观摩比赛的机会。</p>
 <p>这篇文章主要讲述我们在RoboCup合肥国际赛<strong>第六天</strong>所发生的一些事情，内容主要以亲身经历为主，其中也会涉及技术方面，但不是重点。</p>
 <a id="more"></a>
@@ -512,7 +512,7 @@
     
     <entry>
       <title><![CDATA[RoboCup比赛系列（七）：RoboCup合肥国际赛第五天]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/09/11/robocup_competition_7_hefei/</url>
+      <url>http://myyerrol.io/zh-cn/2017/09/11/robocup_competition_7_hefei/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>RoboCup即机器人世界杯，是目前世界上级别规格最高、影响力最广的机器人赛事（当然，DARPA机器人挑战赛除外）。中国曾经在2008年的时候举办过一次RoboCup国际赛，地点是在苏州，而七年之后，RoboCup国际赛又一次降临中国，这次则是在拥有多年举办机器人赛事经验的合肥。非常幸运的是我们晓萌机器人团队能够被邀请参与本次比赛新增的BSR项目，并获得免费近距离观摩比赛的机会。</p>
 <p>这篇文章主要讲述我们在RoboCup合肥国际赛<strong>第五天</strong>所发生的一些事情，内容主要以亲身经历为主，其中也会涉及技术方面，但不是重点。</p>
 <a id="more"></a>
@@ -548,7 +548,7 @@
     
     <entry>
       <title><![CDATA[RoboCup比赛系列（六）：RoboCup合肥国际赛第四天]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/08/31/robocup_competition_6_hefei/</url>
+      <url>http://myyerrol.io/zh-cn/2017/08/31/robocup_competition_6_hefei/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>RoboCup即机器人世界杯，是目前世界上级别规格最高、影响力最广的机器人赛事（当然，DARPA机器人挑战赛除外）。中国曾经在2008年的时候举办过一次RoboCup国际赛，地点是在苏州，而七年之后，RoboCup国际赛又一次降临中国，这次则是在拥有多年举办机器人赛事经验的合肥。非常幸运的是我们晓萌机器人团队能够被邀请参与本次比赛新增的BSR项目，并获得免费近距离观摩比赛的机会。</p>
 <p>这篇文章主要讲述我们在RoboCup合肥国际赛<strong>第四天</strong>所发生的一些事情，内容主要以亲身经历为主，其中也会涉及技术方面，但不是重点。</p>
 <a id="more"></a>
@@ -605,7 +605,7 @@
     
     <entry>
       <title><![CDATA[RoboCup比赛系列（五）：RoboCup合肥国际赛第三天]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/08/21/robocup_competition_5_hefei/</url>
+      <url>http://myyerrol.io/zh-cn/2017/08/21/robocup_competition_5_hefei/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>RoboCup即机器人世界杯，是目前世界上级别规格最高、影响力最广的机器人赛事（当然，DARPA机器人挑战赛除外）。中国曾经在2008年的时候举办过一次RoboCup国际赛，地点是在苏州，而七年之后，RoboCup国际赛又一次降临中国，这次则是在拥有多年举办机器人赛事经验的合肥。非常幸运的是我们晓萌机器人团队能够被邀请参与本次比赛新增的BSR项目，并获得免费近距离观摩比赛的机会。</p>
 <p>这篇文章主要讲述我们在RoboCup合肥国际赛<strong>第三天</strong>所发生的一些事情，内容主要以亲身经历为主，其中也会涉及技术方面，但不是重点。</p>
 <a id="more"></a>
@@ -706,7 +706,7 @@
     
     <entry>
       <title><![CDATA[RoboCup比赛系列（四）：RoboCup合肥国际赛第二天]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/08/11/robocup_competition_4_hefei/</url>
+      <url>http://myyerrol.io/zh-cn/2017/08/11/robocup_competition_4_hefei/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>RoboCup即机器人世界杯，是目前世界上级别规格最高、影响力最广的机器人赛事（当然，DARPA机器人挑战赛除外）。中国曾经在2008年的时候举办过一次RoboCup国际赛，地点是在苏州，而七年之后，RoboCup国际赛又一次降临中国，这次则是在拥有多年举办机器人赛事经验的合肥。非常幸运的是我们晓萌机器人团队能够被邀请参与本次比赛新增的BSR项目，并获得免费近距离观摩比赛的机会。</p>
 <p>这篇文章主要讲述我们在RoboCup合肥国际赛<strong>第二天</strong>所发生的一些事情，内容主要以亲身经历为主，其中也会涉及技术方面，但不是重点。</p>
 <a id="more"></a>
@@ -769,7 +769,7 @@
     
     <entry>
       <title><![CDATA[RoboCup比赛系列（三）：RoboCup合肥国际赛第一天]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/07/31/robocup_competition_3_hefei/</url>
+      <url>http://myyerrol.io/zh-cn/2017/07/31/robocup_competition_3_hefei/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>RoboCup即机器人世界杯，是目前世界上级别规格最高、影响力最广的机器人赛事（当然，DARPA机器人挑战赛除外）。中国曾经在2008年的时候举办过一次RoboCup国际赛，地点是在苏州，而七年之后，RoboCup国际赛又一次降临中国，这次则是在拥有多年举办机器人赛事经验的合肥。非常幸运的是我们晓萌机器人团队能够被邀请参与本次比赛新增的BSR项目，并获得免费近距离观摩比赛的机会。</p>
 <p>这篇文章主要讲述我们在RoboCup合肥国际赛<strong>第一天</strong>所发生的一些事情，内容主要以亲身经历为主，其中也会涉及技术方面，但不是重点。</p>
 <a id="more"></a>
@@ -919,7 +919,7 @@
     
     <entry>
       <title><![CDATA[RoboCup比赛系列（二）：RoboCup合肥国际赛前一天]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/07/21/robocup_competition_2_hefei/</url>
+      <url>http://myyerrol.io/zh-cn/2017/07/21/robocup_competition_2_hefei/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>RoboCup即机器人世界杯，是目前世界上级别规格最高、影响力最广的机器人赛事（当然，DARPA机器人挑战赛除外）。中国曾经在2008年的时候举办过一次RoboCup国际赛，地点是在苏州，而七年之后，RoboCup国际赛又一次降临中国，这次则是在拥有多年举办机器人赛事经验的合肥。非常幸运的是我们晓萌机器人团队能够被邀请参与本次比赛新增的BSR项目，并获得免费近距离观摩比赛的机会。</p>
 <p>这篇文章主要讲述我们在RoboCup合肥国际赛<strong>前一天</strong>所发生的一些事情，内容主要以亲身经历为主，其中也会涉及技术方面，但不是重点。</p>
 <a id="more"></a>
@@ -962,7 +962,7 @@
     
     <entry>
       <title><![CDATA[RoboCup比赛系列（一）：中国服务机器人大赛]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/07/11/robocup_competition_1_luoyang/</url>
+      <url>http://myyerrol.io/zh-cn/2017/07/11/robocup_competition_1_luoyang/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在经过短时间的调试之后，我们新一届晓萌机器人团队终于迎来了检验自己成果的时候。因为晓萌机器人的新机械臂是在比赛出发之前才安装到位，所以本次五月份的比赛我们并没有使用。除此之外，学长在出发之前告诉我们：要放下包袱，尽力去完成比赛，注重与其他队伍的交流，把这次比赛作为自己开阔视野的好机会。赛后确实就像学长所说的那样，我们从本次比赛中学到了很多东西，这对于晓萌团队未来的发展起到了非常积极的作用。</p>
 <p>本次中国服务机器人大赛在河南洛阳举办，基本上国内研究服务机器人的高校都悉数到场，比如北理、北信科、二炮、上应技、上大、西北师范等，其中比赛项目主要有RoboCup@Home、Follow、GPSR、WhoIsWho、Shopping等。</p>
 <a id="more"></a>
@@ -1100,7 +1100,7 @@
     
     <entry>
       <title><![CDATA[RoboCup比赛系列（零）：总纲]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/07/01/robocup_competition_0_superclass/</url>
+      <url>http://myyerrol.io/zh-cn/2017/07/01/robocup_competition_0_superclass/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我记得自己大二刚来基地的时候，狗哥（<strong>西工大一小学生</strong>）就曾告诉我们这一届新队员：</p>
 <blockquote>
 <p>我们参加机器人比赛重要的是经历和交流，而不是结果。最后获得的奖只能代表你参加过此次比赛，它无法全部证明你的能力。</p>
@@ -1170,7 +1170,7 @@
     
     <entry>
       <title><![CDATA[Hexo教程系列（二）：Freemind主题的配置]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/06/07/hexo_2_freemind_configuration/</url>
+      <url>http://myyerrol.io/zh-cn/2017/06/07/hexo_2_freemind_configuration/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我之前在选择自己博客网站主题的时候曾浏览过<a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo主题</a>网站，发现Hexo官方提供了不少各具特色的主题。后来为了进一步确定到底使用哪个主题，我又仔细地参考了知乎上有关<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">Hexo主题推荐</a>的文章。总之，在一段长时间的纠结和考虑之后，我最终决定放弃参考别人的想法而是遵循自己内心的感觉，选择了一个叫Freemind的主题。</p>
 <p>Freemind主题虽然不是Hexo里面排名前十或在推荐里面出现次数较多的主题，但它的那种简约而又专业的风格令我十分喜欢。接下来，我会简要地介绍Freemind主题的特点和安装步骤，并重点地讲解它的配置方法。当然了，Hexo主题的配置基本上大同小异，只要学会了其中一种主题的配置方法，其他的就可以触类旁通了。</p>
 <a id="more"></a>
@@ -1371,7 +1371,7 @@
     
     <entry>
       <title><![CDATA[ROS经验总结系列（二）：晓萌机器人机械臂]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/04/20/ros_experience_2_xmbot_arm/</url>
+      <url>http://myyerrol.io/zh-cn/2017/04/20/ros_experience_2_xmbot_arm/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我在大二的时候加入到了西北工业大学舞蹈机器人基地RoboCup@Home项目组，主要负责家政服务机器人晓萌机械臂的软件开发部分。在开发的过程中，我曾遇到并解决过一些问题，也算是积累了一些机械臂开发的经验，因此现在我打算将这些经验分享出来，希望能给那些正在使用ROS来开发机械臂的后来者们提供一些帮助。当然，写得不对的地方欢迎各位大神指正。</p>
 <p>以下，我从技术介绍和学习流程两个方面来进行讲解。其中技术介绍方面又分为机械、电子和软件三个章节。由于我在项目组里做的是软件开发工作，对机械和电子了解得相对较少，因此机械和电子这两个章节的内容我会简略地介绍，而讲解的重点自然便是软件章节。最后关于学习流程方面，我从基础、进阶、高级以及资源这四个章节来分别进行叙述，力求将自己的学习方法完整地呈现出来。</p>
 <a id="more"></a>
@@ -1746,7 +1746,7 @@
     
     <entry>
       <title><![CDATA[ROS经验总结系列（一）：晓萌机器人系统]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/04/18/ros_experience_1_xmbot_system/</url>
+      <url>http://myyerrol.io/zh-cn/2017/04/18/ros_experience_1_xmbot_system/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我在大二的时候加入到了西北工业大学舞蹈机器人基地RoboCup@Home项目组，在接近一年半的学习与开发过程中，我与负责其他模块的成员一起在原有晓萌机器人的基础上，对其整个系统架构进行了全面的升级，以便满足实际比赛的需要。同时在这个过程中，我也对新一代晓萌机器人系统有了更深的认识与理解。这里，我把自己对晓萌机器人系统的见解总结下来，一方面算是对我们这一届成员开发成果的总结，另一方面也希望这些经验总结可以留给未来的继任者，能给他们一些开发上的指导和借鉴。</p>
 <p>本篇文章重点介绍晓萌机器人的系统架构，其中主要分为硬件层、嵌入式层、驱动层和软件层。除了技术方面的内容之外，我还会介绍其他有关开发的内容。不过由于这些内容都是来源于自己的个人见解，所以有些地方可能会讲得不够准确，欢迎各位成员在留言处进行指正。</p>
 <a id="more"></a>
@@ -1869,7 +1869,7 @@
     
     <entry>
       <title><![CDATA[ROS经验总结系列（零）：总纲]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/04/15/ros_experience_0_superclass/</url>
+      <url>http://myyerrol.io/zh-cn/2017/04/15/ros_experience_0_superclass/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我最早开始接触ROS是在大一的下半学期，那时因为自己对电子制作以及机器人等非常感兴趣，所以经常每周跑去图书馆阅读相关方面的杂志（推荐《<strong>无线电</strong>》）和书籍。</p>
 <p>有一次，我跟往常一样来到机器人书架前，无意中发现了一本叫《开源机器人操作系统》的红书。当时我心里面有些疑惑：机器人还可以有操作系统？于是抱着好奇的心态，我翻了翻这本书的前几页，其中乌龟外形的标志当时给我留下了非常深刻的印象。</p>
 <p>后来没过多长时间，我加入了西北工业大学舞蹈机器人基地RoboCup@Home项目组，开始正式地学习ROS并逐渐体会到它的强大之处，以下我简要地介绍一下ROS。</p>
@@ -1904,7 +1904,7 @@
     
     <entry>
       <title><![CDATA[Hexo教程系列（一）：Hexo的安装和配置]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/03/31/hexo_1_installation_and_configuration/</url>
+      <url>http://myyerrol.io/zh-cn/2017/03/31/hexo_1_installation_and_configuration/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo的安装和配置内容主要由四个部分组成，它们分别是：</p>
 <ul>
 <li><p><strong>Node.js:</strong><br>因为Hexo是基于Node.js框架进行开发的，所以Node.js为Hexo提供了必需的运行基础。</p>
@@ -2370,7 +2370,7 @@
     
     <entry>
       <title><![CDATA[Hexo教程系列（零）：总纲]]></title>
-      <url>https://myyerrol.github.io/zh-cn/2017/03/31/hexo_0_superclass/</url>
+      <url>http://myyerrol.io/zh-cn/2017/03/31/hexo_0_superclass/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我大一时就想过搭建一个属于自己的博客网站来记录一些自己曾经做过项目的开发经验和个人的生活感悟等，但由于时间缘故，我的这个想法一直没有实现。时间一晃到了大四，由于毕设前期任务不是很重，所以这次我决定要花一些时间把自己的博客网站搭建出来，一方面算是实现了自己当初的想法，另一方面也可以有机会将自己大学本科四年的经历总结下来，以供他人学习借鉴。</p>
 <p>搭建网站的一般做法是：先买个域名，再租个服务器，最后在其上部署WordPress来进行相关的配置。虽然WordPress学起来不难，但是这样做不仅需要花钱，而且还需要不少前期准备工作，搭建起来比较繁琐。后来我经同学介绍认识了Hexo，才发现它的简洁和强大，接下来简要地介绍一下Hexo。</p>
 <a id="more"></a>
