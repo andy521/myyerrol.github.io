@@ -162,8 +162,8 @@ var _hmt = _hmt || [];
 
     <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我记得自己第一次接触四轴飞行器是在大一，有一次我在<a href="https://www.ted.com" target="_blank" rel="external">TED</a>上看了由瑞士苏黎世联邦理工大学的Raffaello D’Andrea教授所做的关于四轴飞行器的演讲，题目是<strong>“The astounding athletic power of quadcopters”</strong>，教授边用四轴飞行器进行演示并对其中所用到的数学理论进行讲解，对于当时什么理论都不懂的我来说，最令我惊讶的是在演示环节，那些四轴飞行器能够在高速移动的时候保证放在其顶部的细棍和酒杯不失去平衡，可以在桨叶受损的情况下依然可控，可以通过协作接住由人所抛出的小球并将其击回，可以判断人的手势来做不同的动作等。当时看完这段视频之后我的内心难以平静，脑海里萌生了自制四轴飞行器的想法，但由于后来我加入了舞蹈机器人基地并忙于组内的开发任务，所以这个想法就暂时被搁置了。</p>
 <a id="more"></a>
-<p><img src="../../../../../images/ted/ted_quadcopter_1.jpg" alt="ted_quadcopter_1"></p>
-<p><img src="../../../../../images/ted/ted_quadcopter_2.jpg" alt="ted_quadcopter_2"></p>
+<p><img src="/images/ted/ted_quadcopter_1.jpg" alt="ted_quadcopter_1"></p>
+<p><img src="/images/ted/ted_quadcopter_2.jpg" alt="ted_quadcopter_2"></p>
 <p>一转眼到了大三下学期，我从舞蹈机器人机基地退役。一个偶然的机会，我从<a href="https://github.com/maksyuki" target="_blank" rel="external">maksyuki</a>那里得知有一个叫做<a href="https://www.bitcraze.io" target="_blank" rel="external">Crazyflie</a>的微型四轴飞行器，这一次我算是打从心底里被震撼到了，以下是几点原因：</p>
 <ul>
 <li><p><strong>硬件</strong></p>
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
 </li>
 <li><p><strong>文档</strong></p>
 <p>除了以上两点有关技术层面的优势，Crazyflie微型四轴飞行器项目还有一个最令我无法抗拒的因素——丰富的文档。说实话，我从来没有看到过一家不以盈利为主要目的团队可以将自己的开源项目文档写得如此详细，但是Bitcraze团队做到了，他们这种乐于分享的精神实在是值得我们学习。</p>
-<p><img src="../../../../../images/crazyflie/crazyflie.jpg" alt="crazyflie"></p>
+<p><img src="/images/crazyflie/crazyflie.jpg" alt="crazyflie"></p>
 </li>
 </ul>
 <p>总之，这次在看过Crazyflie微型四轴项目之后，我脑海中有关自制四轴飞行器的想法又被重新唤醒了，于是我们创建了MicroDynamics团队，而Breeze微型四轴项目也就因此顺利地诞生了。</p>
@@ -191,7 +191,7 @@ var _hmt = _hmt || [];
 </ul>
 <h3 id="开发现状"><a href="#开发现状" class="headerlink" title="开发现状"></a>开发现状</h3><ul>
 <li><h4 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h4><p>Breeze微型四轴飞行器硬件电路主要由五个部分组成，以下是硬件的架构图：</p>
-<p><img src="../../../../../images/breeze/hardware/breeze_hardware_architecture.png" alt="breeze_hardware_architecture"></p>
+<p><img src="/images/breeze/hardware/breeze_hardware_architecture.png" alt="breeze_hardware_architecture"></p>
 <p><strong>电机驱动模块</strong><br>电机驱动模块主要负责接收主控制器发过来的PWM（脉冲宽度调制）信号来控制四轴飞行器每个有刷空心杯电机的转速。</p>
 <p><strong>电源管理模块</strong><br>电源管理模块是四轴飞行器能量的来源，它的主要功能有：负责USB和锂电池电源的切换、管理锂电池的充放电以及对输入的电源进行降稳压操作。</p>
 <p><strong>传感器模块</strong><br>传感器模块包括了陀螺仪、加速度计、磁力计和气压计。正是由以上这些传感器所构成的10自由度IMU（惯性测量单元）为四轴飞行器提供了绝对或相对的位置和姿态信息，使得四轴飞行器可以在运动过程中获知自身的运动状态，使其可以更好地预估自己的行为。</p>
@@ -199,7 +199,7 @@ var _hmt = _hmt || [];
 <p><strong>主控制器模块</strong><br>主控制器模块是四轴飞行器的核心，它主要接收从上层传感器和无线通信模块发过来的数据，并根据不同的控制命令对姿态数据进行数学解算，最后将解算结果以PWM信号的形式发送给电机驱动模块。</p>
 </li>
 <li><h4 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h4><p>Breeze微型四轴飞行器的嵌入式系统架构如下图所示，其中主要包含硬件设备、底层驱动、外设模块和飞控算法等四个部分。</p>
-<p><img src="../../../../../images/breeze/embedded/breeze_embedded_architecture.png" alt="breeze_embedded_architecture"></p>
+<p><img src="/images/breeze/embedded/breeze_embedded_architecture.png" alt="breeze_embedded_architecture"></p>
 <p><strong>硬件设备</strong><br>硬件设备部分包含上面第介绍过的电路模块：电机驱动、电源管理、传感器、无线通信以及主控制器。</p>
 <p><strong>底层驱动</strong><br>底层驱动部分包含了常用的外设接口（如IIC、SPI、USART）和内部核心功能（如时钟、延时、中断、定时器、EEPROM、Flash）。它主要是根据STM32官方固件库（上图Libraries部分）中的内容，对系统外设接口或内部核心功能进行进一步的封装，以满足上层外设模块的使用需要。</p>
 <p><strong>外设模块</strong><br>外设模块是对具体外设硬件进行操作的函数库，它使用底层驱动中的大量函数来实现对硬件的控制。外设模块包含了IMU、电机、电池、NRF24L01和CommLink通信协议栈等。本章将会在后面介绍其中比较重要的几个。</p>
@@ -207,8 +207,8 @@ var _hmt = _hmt || [];
 </li>
 <li><h4 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h4><p>如下图所示，<a href="https://github.com/microdynamics" target="_blank" rel="external">MicroDynamics团队GitHub</a>中主要包含了我们团队自己制定的代码规范，Linux下STM32开发的工程模板文件以及记录有我们在开发过程中所遇问题以及解决办法的日志文件。<a href="https://github.com/microdynamics-quadcopter" target="_blank" rel="external">MicroDynamics Quadcopter项目GitHub</a>中则主要包含了Breeze微型四轴飞行器的硬件电路设计、嵌入式代码以及图形化的上位机调试工具等。总之我们把所有能开源的资料都放到了以下两个GitHub组织里，方便交流学习。</p>
 <div class="alert alert-info"><i class="fa fa-info"></i>  由于我们MicroDynamics团队将正式着手开发新一代的微型四轴飞行器，所以Breeze微型四轴飞行器的代码不会再被开发和维护，目前已有内容仅供学习使用。</div>
-<p><img src="../../../../../images/microdynamics/github_microdynamics.png" alt="github_microdynamics"></p>
-<p><img src="../../../../../images/microdynamics/github_microdynamics_quadcopter.png" alt="github_microdynamics_quadcopter"></p>
+<p><img src="/images/microdynamics/github_microdynamics.png" alt="github_microdynamics"></p>
+<p><img src="/images/microdynamics/github_microdynamics_quadcopter.png" alt="github_microdynamics_quadcopter"></p>
 </li>
 </ul>
 <h3 id="开源协议"><a href="#开源协议" class="headerlink" title="开源协议"></a>开源协议</h3><p>目前MicroDynamics团队的项目文档、开发模板以及Breeze微型四轴飞行器的硬件电路设计、嵌入式代码和上层调试软件均遵循<strong>GPL-3.0许可协议</strong>，使用者可以免费使用和修改代码，但修改和衍生后的代码不允许做为闭源商业软件进行发布和销售。</p>

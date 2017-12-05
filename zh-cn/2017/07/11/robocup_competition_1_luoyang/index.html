@@ -166,39 +166,39 @@ var _hmt = _hmt || [];
 <h2 id="经历"><a href="#经历" class="headerlink" title="经历"></a>经历</h2><div class="alert alert-warning"><i class="fa fa-bell"></i>  由于之前本人电脑中存储的照片全部丢失，因此该博客中所显示的照片数量比较有限，希望读者可以理解。</div>
 <h3 id="美食"><a href="#美食" class="headerlink" title="美食"></a>美食</h3><ul>
 <li><h4 id="锅贴"><a href="#锅贴" class="headerlink" title="锅贴"></a>锅贴</h4><p>经过五个多小时的路程，我们终于来到了牡丹之城——洛阳。在处理完宾馆的入住手续之后，我们就跟随着志愿者来到了当地非常有名的<strong>小街锅贴</strong>店进行用餐。话说这家店做的锅贴味道还真不错，虽然我在北京吃过几次<strong>褡裢火烧</strong>，但都不如这家店做得外皮香脆、肉馅多汁（直到后来才知道<strong>小街锅贴</strong>是河南的老字号和非物质文化遗产，怪不得做的那么好吃）。</p>
-<p><img src="../../../../../images/luoyang/food/fired_dumpling.jpg" alt="fired_dumpling"></p>
+<p><img src="/images/luoyang/food/fired_dumpling.jpg" alt="fired_dumpling"></p>
 <p>在饱餐一顿之后，我们回到宾馆开始了对机器人底盘的调试工作。尽管后来熬夜到了很晚，但是一想到明天就可以在比赛会场看到其他参赛队伍的服务机器人，所有的劳累就都被抛到了脑后。</p>
 </li>
 <li><h4 id="牛肉汤"><a href="#牛肉汤" class="headerlink" title="牛肉汤"></a>牛肉汤</h4><p>第二天一早，根据志愿者的热心介绍，我们来到了学校附近的<strong>龙鳞路第一家牛肉汤</strong>店铺喝汤。在洛阳，喝汤是人们挥之不去的习惯，所以我们也入乡随俗，跟随着志愿者一起买饼，然后边喝牛肉汤边吃自己手撕的饼丝，味道确实相当不错。</p>
-<p><img src="../../../../../images/luoyang/food/beef_broth.jpg" alt="beef_broth"></p>
+<p><img src="/images/luoyang/food/beef_broth.jpg" alt="beef_broth"></p>
 </li>
 </ul>
-<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p><img src="../../../../../images/luoyang/registration/registration.jpg" alt="registration"></p>
+<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p><img src="/images/luoyang/registration/registration.jpg" alt="registration"></p>
 <p>在完成比赛的注册之后，我们终于来到了比赛场馆——河南科技大学西苑校区体育馆。在这里，我们遇到了几个国内技术水平较高的参赛队伍，接下来对他们进行简单的介绍。</p>
 <h3 id="队伍"><a href="#队伍" class="headerlink" title="队伍"></a>队伍</h3><ul>
-<li><h4 id="晓萌队"><a href="#晓萌队" class="headerlink" title="晓萌队"></a>晓萌队</h4><p><img src="../../../../../images/luoyang/team/team_xm.jpg" alt="team_xm"></p>
+<li><h4 id="晓萌队"><a href="#晓萌队" class="headerlink" title="晓萌队"></a>晓萌队</h4><p><img src="/images/luoyang/team/team_xm.jpg" alt="team_xm"></p>
 <p><strong>简介：</strong><br>晓萌队来自西北工业大学舞蹈机器人基地，由学长们于2010年所创建。经过五年时间的发展，我们的晓萌机器人已经发展到了第三代半（因为相比于第三代，只在原有的基础上添加了新机械臂，所以按照汪学长的意思，目前的晓萌机器人只能算是第三代半，而不是第四代），其中涉及的很多开发技术技术都已逐渐走向成熟。接下来我按照机械、电子和软件这三个层面来对当前晓萌机器人进行简要的介绍。</p>
 <p><strong>机械：</strong><br>从图中可以看到，晓萌机器人的前面安装有一个新机械臂。它的机械结构主要由同步轮和同步带这两部分组成。只要发送命令让电机发生转动，在同步轮和同步带的联合作用下，相应的机械臂关节便会发生转动。当然，电机和关节旋转角度之间互相转换的数学关系是非常重要的，特别是对于像我们这样的机械臂，大臂、小臂和手腕关节彼此连接的连杆并不是刚体，所以在对关节数据进行转换的时候，需要通过计算对关节运动进行补偿。</p>
 <p>晓萌机器人的底盘部分还是沿用之前的结构——由三个麦克纳姆轮所构成的全向移动平台。虽然整个底盘的移动精度还可以，不过由于新机械臂的升降部分相当重，使得其对底盘部分的压力比较大，所以在赛前调试中底盘移动会出现比较明显的偏差（不过好在可以通过算法来进行一定程度的补偿）。</p>
 <p><strong>电子：</strong><br>电子部分基本上还是沿用了上一代学长所留下的成果。从图中可以看到，因为我们这次比赛之前的准备比较仓促，所以还是有很多电线暴露在外面，电机驱动盒和控制板也没有被固定在隔板上。不过，电子部分的运行效果还是相当鲁棒的，至少不像软件那样说跪就跪。</p>
 <p><strong>软件：</strong><br>我们本次参赛的晓萌机器人软件部分也依旧继承了之前的架构。在Windows上，我们主要使用微软自带的Speech库来做语音合成和识别；在Ubuntu上，我们则使用ROS来做各模块的开发和集成工作，其中涉及有基于人脸检测的图像模块、基于运动规划和自主控制的底盘模块、以及基于机器人行为的策略模块等。</p>
 </li>
-<li><h4 id="东风队"><a href="#东风队" class="headerlink" title="东风队"></a>东风队</h4><p><img src="../../../../../images/luoyang/team/team_dongfeng.jpg" alt="team_dongfeng"></p>
+<li><h4 id="东风队"><a href="#东风队" class="headerlink" title="东风队"></a>东风队</h4><p><img src="/images/luoyang/team/team_dongfeng.jpg" alt="team_dongfeng"></p>
 <p><strong>简介：</strong><br>东风队来自第二炮兵工程大学（现火箭军工程大学）。</p>
 </li>
-<li><h4 id="侏罗纪队"><a href="#侏罗纪队" class="headerlink" title="侏罗纪队"></a><span id="jump">侏罗纪队</span></h4><p><img src="../../../../../images/luoyang/team/team_zhuluoji.jpg" alt="team_zhuluoji"></p>
+<li><h4 id="侏罗纪队"><a href="#侏罗纪队" class="headerlink" title="侏罗纪队"></a><span id="jump">侏罗纪队</span></h4><p><img src="/images/luoyang/team/team_zhuluoji.jpg" alt="team_zhuluoji"></p>
 <p><strong>简介：</strong><br>侏罗纪队来自西北师范大学。</p>
 </li>
-<li><h4 id="Sun-Home"><a href="#Sun-Home" class="headerlink" title="Sun@Home"></a>Sun@Home</h4><p><img src="../../../../../images/luoyang/team/team_sun@home.jpg" alt="team_sun@home"></p>
+<li><h4 id="Sun-Home"><a href="#Sun-Home" class="headerlink" title="Sun@Home"></a>Sun@Home</h4><p><img src="/images/luoyang/team/team_sun@home.jpg" alt="team_sun@home"></p>
 <p><strong>简介：</strong><br>Sun@Home队来自于北京信息科技大学。</p>
 </li>
-<li><h4 id="BIT-Home"><a href="#BIT-Home" class="headerlink" title="BIT@Home"></a>BIT@Home</h4><p><img src="../../../../../images/luoyang/team/team_bit@home.jpg" alt="team_bit@home"></p>
+<li><h4 id="BIT-Home"><a href="#BIT-Home" class="headerlink" title="BIT@Home"></a>BIT@Home</h4><p><img src="/images/luoyang/team/team_bit@home.jpg" alt="team_bit@home"></p>
 <p><strong>简介：</strong><br>BIT@Home队来自北京理工大学。</p>
 </li>
-<li><h4 id="自强队"><a href="#自强队" class="headerlink" title="自强队"></a>自强队</h4><p><img src="../../../../../images/luoyang/team/team_ziqiang.jpg" alt="team_ziqiang"></p>
+<li><h4 id="自强队"><a href="#自强队" class="headerlink" title="自强队"></a>自强队</h4><p><img src="/images/luoyang/team/team_ziqiang.jpg" alt="team_ziqiang"></p>
 <p><strong>简介：</strong><br>自强队来自上海大学。</p>
 </li>
-<li><h4 id="创之风队"><a href="#创之风队" class="headerlink" title="创之风队"></a>创之风队</h4><p><img src="../../../../../images/luoyang/team/team_chuangzhifeng.jpg" alt="team_chuangzhifeng"></p>
+<li><h4 id="创之风队"><a href="#创之风队" class="headerlink" title="创之风队"></a>创之风队</h4><p><img src="/images/luoyang/team/team_chuangzhifeng.jpg" alt="team_chuangzhifeng"></p>
 <p><strong>简介：</strong><br>创之风队来自上海应用技术学院。</p>
 </li>
 </ul>
