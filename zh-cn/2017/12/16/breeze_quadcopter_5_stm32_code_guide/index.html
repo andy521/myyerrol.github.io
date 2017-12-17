@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo教程系列（零）：总纲 | Home | myyerrol&#39;s blog</title>
+  <title>Breeze微型四轴系列（五）：STM32嵌入式开发-代码编写规范 | Home | myyerrol&#39;s blog</title>
   <meta name="author" content="myyerrol">
   
-    <meta name="description" content="本篇文章介绍Hexo教程系列的总纲。">
+    <meta name="description" content="本篇文章介绍Breeze微型四轴飞行器STM32嵌入式开发-代码编写规范的相关内容。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hexo教程系列（零）：总纲"/>
+  <meta property="og:title" content="Breeze微型四轴系列（五）：STM32嵌入式开发-代码编写规范"/>
   <meta property="og:site_name" content="Home | myyerrol&#39;s blog"/>
 
   
@@ -122,7 +122,7 @@ var _hmt = _hmt || [];
 
   
     <div class="page-header page-header-inverse ">
-      <h1 class="title title-inverse "> Hexo教程系列（零）：总纲</h1>
+      <h1 class="title title-inverse "> Breeze微型四轴系列（五）：STM32嵌入式开发-代码编写规范</h1>
     </div>
   
 
@@ -145,9 +145,9 @@ var _hmt = _hmt || [];
   </span>&nbsp
 
   <i class="fa fa-file-word-o"></i>&nbsp文章字数
-  <span class="post-count">710</span>字&nbsp
+  <span class="post-count">38</span>字&nbsp
   <i class="fa fa-clock-o"></i>&nbsp阅读时长
-  <span class="post-count">2</span>分钟
+  <span class="post-count">1</span>分钟
 
   <p></p>
 
@@ -155,31 +155,13 @@ var _hmt = _hmt || [];
   <div class="mypage">
     
       <div class="alert alert-success description">
-        <i class="fa fa-info-circle"></i> <p>本篇文章介绍Hexo教程系列的总纲。</p>
+        <i class="fa fa-info-circle"></i> <p>本篇文章介绍Breeze微型四轴飞行器STM32嵌入式开发-代码编写规范的相关内容。</p>
 
       </div> <!-- alert -->
     
 
-    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我大一时就想过搭建一个属于自己的博客网站来记录一些自己曾经做过项目的开发经验和个人的生活感悟等，但由于时间缘故，我的这个想法一直没有实现。时间一晃到了大四，由于毕设前期任务不是很重，所以这次我决定要花一些时间把自己的博客网站搭建出来，一方面算是实现了自己当初的想法，另一方面也可以有机会将自己大学本科四年的经历总结下来，以供他人学习借鉴。</p>
-<p>搭建网站的一般做法是：先买个域名，再租个服务器，最后在其上部署WordPress来进行相关的配置。虽然WordPress学起来不难，但是这样做不仅需要花钱，而且还需要不少前期准备工作，搭建起来比较繁琐。后来我经同学介绍认识了Hexo，才发现它的简洁和强大，接下来简要地介绍一下Hexo。</p>
-<a id="more"></a>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>Hexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
-<li><h4 id="免费"><a href="#免费" class="headerlink" title="免费"></a>免费</h4><p>可以部署到GitHub、GitCafe和七牛上，都是完全免费的。</p>
-</li>
-<li><h4 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h4><p>比部署WordPress要简单得多，只需要简单几部就能搭建好环境，仅需要记住几条简短的命令和Markdown语法，即可写出精彩的文章。</p>
-</li>
-<li><h4 id="稳定"><a href="#稳定" class="headerlink" title="稳定"></a>稳定</h4><p>不用去操心服务器主机的运维。</p>
-</li>
-<li><h4 id="快速"><a href="#快速" class="headerlink" title="快速"></a>快速</h4><p>Node.js所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。同时将网站部署到GitHub、GitCafe、七牛，在全球都可获得优秀的访问速度。</p>
-</li>
-<li><h4 id="强大"><a href="#强大" class="headerlink" title="强大"></a>强大</h4><p>Hexo拥有强大的插件系统，安装插件可以让Hexo支持Jade、CoffeeScript。</p>
-</li>
-</ul>
-<h2 id="总纲"><a href="#总纲" class="headerlink" title="总纲"></a>总纲</h2><p>以下是我编写的Hexo教程系列文章：</p>
-<p><a href="https://myyerrol.github.io/zh-cn/2017/03/31/hexo_0_superclass/" target="_blank" rel="external">Hexo教程系列（零）：Hexo教程系列总纲</a><br><a href="https://myyerrol.github.io/zh-cn/2017/03/31/hexo_1_installation_and_configuration/" target="_blank" rel="external">Hexo教程系列（一）：Hexo的安装和配置</a><br><a href="https://myyerrol.github.io/zh-cn/2017/06/07/hexo_2_freemind_configuration/" target="_blank" rel="external">Hexo教程系列（二）：Freemind主题的配置</a></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在开始接触Hexo之后，我在网上搜集并学习一些有关Hexo的教程资料，算是基本掌握了Hexo的配置和使用方法。总之，我的个人博客网站已经搭建完成，后续我会使用这个平台来记录自己大学四年以及未来的项目经验和生活感悟。当然，我会首先把上面的Hexo教程系列文章完成，希望能让更多的人可以据此来搭建网站并分享自己的故事。</p>
-<div class="alert alert-info"><i class="fa fa-info"></i>  普通个人转载请注明出处。获得许可后，要求转载时保留注明出处和网站链接，谢谢！</div>
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><a id="more"></a>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><div class="alert alert-info"><i class="fa fa-info"></i>  普通个人转载请注明出处。获得许可后，要求转载时保留注明出处和网站链接，谢谢！</div>
 
   </div>
 
@@ -189,13 +171,13 @@ var _hmt = _hmt || [];
 <ul class="pagination">
   
     
-      <li class="prev"><a href="/zh-cn/2017/03/31/hexo_1_installation_and_configuration/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+      <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
     
 
     <li><a href="/archives/"><i class="fa fa-archive"></i>归档</a></li>
 
     
-      <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+      <li class="next"><a href="/zh-cn/2017/12/01/breeze_quadcopter_4_stm32_linkscript/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
     
   
 </ul>
@@ -229,7 +211,7 @@ var _hmt = _hmt || [];
          no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
          go_to_comment: "去留言",
          no_issue: "no_issue",
-         issue_title: "Hexo教程系列（零）：总纲",
+         issue_title: "Breeze微型四轴系列（五）：STM32嵌入式开发-代码编写规范",
          issue_id: "undefined",
          btn_class: "btn btn-primary",
          comments_target: "#comment-thread",
@@ -250,7 +232,7 @@ var _hmt = _hmt || [];
 
   <div class="meta-widget">
     <i class="fa fa-clock-o"></i>
-    2017-03-31
+    2017-12-16
   </div>
 
 
@@ -261,7 +243,7 @@ var _hmt = _hmt || [];
     <ul id="categorys" class="tag_box list-unstyled collapse in">
     
 <li>
-  <li><a href="/categories/Hexo教程系列/">Hexo教程系列<span>3</span></a></li>
+  <li><a href="/categories/Breeze微型四轴系列/">Breeze微型四轴系列<span>6</span></a></li>
 </li>
 
     </ul>
@@ -274,7 +256,7 @@ var _hmt = _hmt || [];
     <a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>
     <ul id="tags" class="tag_box list-unstyled collapse in">
     
-<li><a href="/tags/Hexo/">Hexo<span>3</span></a></li> <li><a href="/tags/Blog/">Blog<span>3</span></a></li>
+<li><a href="/tags/Micro-Quadcopter/">Micro Quadcopter<span>6</span></a></li> <li><a href="/tags/STM32/">STM32<span>4</span></a></li>
     </ul>
   </div>
 
@@ -284,7 +266,7 @@ var _hmt = _hmt || [];
   
     <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
     <div id="toc" class="toc collapse in">
-      <ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#前言"><span class="toc-article-text">前言</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#简介"><span class="toc-article-text">简介</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#定义"><span class="toc-article-text">定义</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#特点"><span class="toc-article-text">特点</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#免费"><span class="toc-article-text">免费</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#简单"><span class="toc-article-text">简单</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#稳定"><span class="toc-article-text">稳定</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#快速"><span class="toc-article-text">快速</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#强大"><span class="toc-article-text">强大</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#总纲"><span class="toc-article-text">总纲</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#总结"><span class="toc-article-text">总结</span></a></li></ol>
+      <ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#前言"><span class="toc-article-text">前言</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#总结"><span class="toc-article-text">总结</span></a></li></ol>
     </div>
   
 </div>
@@ -321,7 +303,7 @@ var disqus_shortname = 'myyerrol';
   <span id="busuanzi_container_site_pv">
     <i class="fa fa-flag"></i>&nbsp本站总访问量<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次
     <i class="fa fa-file-word-o"></i>&nbsp文章总字数
-    <span class="post-count">62.6k</span>字
+    <span class="post-count">66.6k</span>字
   </span>
 </p>
  </footer>
